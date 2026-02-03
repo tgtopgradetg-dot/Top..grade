@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOP GRADE</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: #000;
+}
+
+/* ===== LOGIN ===== */
+.login {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85)),
+    url("image/file_00000000867871f4824ab4ca42ba3e0d.png");
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  background: rgba(0,0,0,.7);
+  padding: 40px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+  animation: zoomIn 1.2s;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #ff9900;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== ABOUT ===== */
+.about {
+  background: #0f0f0f;
+}
+
+.about img {
+  width: 160px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px #ff9900);
+}
+
+/* ===== SERVICES ===== */
+.services {
+  background: #111;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #1c1c1c;
+  width: 260px;
+  margin: 15px;
+  padding: 25px;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 0 30px #ff9900;
+}
+
+.card img {
+  width: 90px;
+  margin-bottom: 15px;
+}
+
+/* ===== TG SHIELD CHAT ===== */
+.tg-shield {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  background: #000;
+  border-radius: 50%;
+  box-shadow: 0 0 25px #ff9900;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: pulse 2s infinite;
+}
+
+.tg-shield img {
+  width: 45px;
+}
+
+@media screen and (max-width: 500px) {
+  .tg-shield {
+    width: 55px;
+    height: 55px;
+    bottom: 15px;
+    right: 15px;
+  }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes zoomIn {
+  from { transform: scale(0.6); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 15px #ff9900; }
+  50% { box-shadow: 0 0 35px #ff9900; }
+  100% { box-shadow: 0 0 15px #ff9900; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="login" id="login">
+  <div class="login-box">
+    <h2>Welcome to TG</h2>
+    <input type="text" placeholder="Username" id="username">
+    <input type="password" placeholder="Password" id="password">
+    <button onclick="enterSite()">Enter</button>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about hidden">
+  <img src="image/file_00000000d71061f4ab509ff30ae58574.png">
+  <h1>Who is TG?</h1>
+  <p><b>TOP GRADE</b> – Skills • Services • Power</p>
+</section>
+
+<!-- SERVICES -->
+<section class="services hidden">
+  <h2>Our Services</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="image/1770149673091~2.png">
+      <h3>Stories</h3>
+      <p>Creative stories & growth marketing</p>
+    </div>
+
+    <div class="card">
+      <img src="image/1770150222754~2.png">
+      <h3>Codes & Numbers</h3>
+      <p>Digital codes & smart systems</p>
+    </div>
+
+    <div class="card">
+      <img src="image/1770150214421~2.png">
+      <h3>Websites</h3>
+      <p>Professional website creation</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHAT WITH TG -->
+<a href="https://wa.me/201145914852" class="tg-shield" id="tgShield">
+  <img src="image/file_00000000d71061f4ab509ff30ae58574.png">
+</a>
+
+<script>
+function enterSite() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  if(username === "" || password === "") {
+    alert("يرجى ملء الحقل");
+    return;
+  }
+
+  document.getElementById("login").style.display = "none";
+  document.getElementById("tgShield").style.display = "flex";
+  window.scrollTo(0,0);
+
+  if(username.toLowerCase() === "koy") {
+    alert("Welcome, koy");
+  }
+}
+
+/* Scroll animation */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+</script>
+
+</body>
+  </html>
